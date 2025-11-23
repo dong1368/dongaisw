@@ -175,3 +175,4 @@ if st.button("PDF 생성"):
     pdf_file = save_pdf(city, style, days, weather, st.session_state.itinerary)
     st.success("PDF 생성 완료!")
     st.download_button("📄 PDF 다운로드", data=open(pdf_file, "rb").read(), file_name=pdf_file)
+
