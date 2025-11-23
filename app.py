@@ -16,7 +16,8 @@ st.set_page_config(page_title="AI기반 여행 플래너", layout="wide")
 # API 키
 # -------------------------------
 OPEN_WEATHER_API_KEY = "82634aa21c485c6bb6c2d4e3adef0b45"
-OPENAI_API_KEY = openai.api_key = st.secrets["OPENAI_API_KEY"]openai.api_key = OPENAI_API_KEY
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+openai.api_key = OPENAI_API_KEY
 
 # -------------------------------
 # 도시 좌표 및 소개
@@ -174,5 +175,6 @@ if st.button("PDF 생성"):
     pdf_file = save_pdf(city, style, days, weather, st.session_state.itinerary)
     st.success("PDF 생성 완료!")
     st.download_button("📄 PDF 다운로드", data=open(pdf_file, "rb").read(), file_name=pdf_file)
+
 
 
