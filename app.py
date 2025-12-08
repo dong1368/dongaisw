@@ -10,7 +10,7 @@ from reportlab.lib.units import cm
 import openai
 import os
 
-st.set_page_config(page_title="NoPlan : AI기반 여행 플래너", layout="wide")
+st.set_page_config(page_title="FLOT : AI기반 여행 플래너", layout="wide")
 
 # -------------------------------
 # API 키
@@ -123,7 +123,7 @@ def save_pdf(city, style, days, weather, itinerary):
 # -------------------------------
 # Streamlit UI
 # -------------------------------
-st.title("✈️AI기반 여행 플래너✈️")
+st.title("✈️FLOT : AI기반 여행 플래너")
 
 city = st.selectbox("여행할 도시 선택", list(CITY_COORDS.keys()))
 
@@ -174,4 +174,5 @@ if st.button("PDF 생성"):
     pdf_file = save_pdf(city, style, days, weather, st.session_state.itinerary)
     st.success("PDF 생성 완료!")
     st.download_button("📄 PDF 다운로드", data=open(pdf_file, "rb").read(), file_name=pdf_file)
+
 
