@@ -163,7 +163,7 @@ st.markdown("---")
 if 'itinerary' not in st.session_state:
     st.session_state.itinerary = ""
 
-st.subheader("📝 GPT 추천 여행 일정")
+st.subheader("📝 FLOT 추천 여행 일정")
 if st.button("일정 생성"):
     st.session_state.itinerary = generate_itinerary(city, style, days)
 
@@ -174,5 +174,6 @@ if st.button("PDF 생성"):
     pdf_file = save_pdf(city, style, days, weather, st.session_state.itinerary)
     st.success("PDF 생성 완료!")
     st.download_button("📄 PDF 다운로드", data=open(pdf_file, "rb").read(), file_name=pdf_file)
+
 
 
